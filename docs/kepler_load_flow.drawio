@@ -1,0 +1,96 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="RaN93Kwtu4UBaiKWlmV8">
+        <mxGraphModel dx="1446" dy="1144" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-51" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-196" y="-32" width="949" height="706" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-34" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="96" y="8" width="616" height="308" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-1" value="Linux" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;spacingBottom=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="-160" y="350" width="240" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=1 4;curved=0;" parent="1" source="eaRIBFpsBRjEecRbN_Qg-7" target="eaRIBFpsBRjEecRbN_Qg-26" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-36" value="Sources" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="eaRIBFpsBRjEecRbN_Qg-32" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="6" y="10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-33" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1;dashPattern=1 4;curved=0;" parent="1" source="eaRIBFpsBRjEecRbN_Qg-7" target="eaRIBFpsBRjEecRbN_Qg-24" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-37" value="Sources" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="eaRIBFpsBRjEecRbN_Qg-33" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-20" y="-11" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-7" value="bash_profile.sh" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="214" y="183" width="150" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-12" value="bashrc.sh" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="384" y="183" width="150" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-30" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=0;" parent="1" source="eaRIBFpsBRjEecRbN_Qg-24" target="eaRIBFpsBRjEecRbN_Qg-12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-38" value="Sources" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="eaRIBFpsBRjEecRbN_Qg-30" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="41" y="10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-31" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=0;" parent="1" source="eaRIBFpsBRjEecRbN_Qg-25" target="eaRIBFpsBRjEecRbN_Qg-7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-35" value="Sources" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="eaRIBFpsBRjEecRbN_Qg-31" vertex="1" connectable="0">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-8" y="10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-24" value="~/.bashrc" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-140" y="510" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-25" value="~/.bash_profile" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-140" y="440" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-26" value="~/.profile" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-140" y="370" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-39" value="Kepler Configuration Repo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="96" y="-18" width="159" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-40" value="Machine Level Files" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="-160" y="630" width="124" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;curved=1;" parent="1" source="eaRIBFpsBRjEecRbN_Qg-41" target="eaRIBFpsBRjEecRbN_Qg-7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-41" value="Bash Prompt&lt;div&gt;Config&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="118" y="34" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;curved=1;" parent="1" source="eaRIBFpsBRjEecRbN_Qg-44" target="eaRIBFpsBRjEecRbN_Qg-12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-44" value="Bash Aliases" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="321" y="34" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;" parent="1" source="eaRIBFpsBRjEecRbN_Qg-45" target="eaRIBFpsBRjEecRbN_Qg-12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-45" value="Bash Exports" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="446" y="34" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;curved=1;" parent="1" source="eaRIBFpsBRjEecRbN_Qg-46" target="eaRIBFpsBRjEecRbN_Qg-12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eaRIBFpsBRjEecRbN_Qg-46" value="Bash Functions" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="571" y="34" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
