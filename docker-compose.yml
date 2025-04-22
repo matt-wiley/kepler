@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  ubuntu-ssh:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    ports:
+      - "2222:22"
+    restart: unless-stopped
+    container_name: ubuntu-ssh-server
