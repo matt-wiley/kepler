@@ -18,7 +18,34 @@ A one-time initialization script sets up the environment by injecting source com
 - `bashrc.sh`: Common Bash configuration file for interactive shells.
 - `bash_profile.sh`: Common Bash configuration file for login shells.
 - `init.sh`: One-time initialization script that sets up the environment.
-- `includes/*`: Directory containing sub-scripts and snippets included during the initialization process. 
+- `init_dotfile_links.sh`: Script that creates symlinks to the dotfiles in the home directory.
+- `.includes/*`: Directory containing sub-scripts and snippets included during the initialization process. 
+- `lib`: All supporting functions and libraries for the dotfiles. This is where the magic happens. 
+
+#### `lib` Directory
+
+Generally speaking this directory contains subdirectories for each of the major components of the dotfiles. Each configuration file gets its own subdirectory to organize the files, but there is no hard and fast rule about how the subdirectories are structured.
+
+- `uname`: Contains folders for each OS type (Linux, Darwin, etc.) with configuration files that that are OS-specific.
+- `vimrc`: Collection of vimrc files.
+
+
+#### `init_dotfile_links.sh`
+
+This script creates symlinks to the dotfiles in the home directory. It is run by the `init.sh` script to set up the environment. 
+
+As changes are made to the dotfiles, this script can be run to update the symlinks in the home directory. The `link_map` variable in the script contains a list of files to be linked, with the format `link_target|link_source`. Where `link_target` is the path to the file in the home directory that should be created (e.g. `.vimrc`) and `link_source` is the path to the file in the repository that contains the configuration (e.g. `lib/vimrc/amix-basic.vimrc`).
+
+```bash
+update_dotfile_links() {
+  # ...
+  local link_map=(
+      ".vimrc|lib/vimrc/amix-basic.vimrc"
+  )
+  # ...
+}
+```
+
 
 ### Support Files for Development
 

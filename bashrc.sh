@@ -1,2 +1,2 @@
-# Set the KEPLER_HOME environment variable to the default location if not already set
-export KEPLER_TEST_TWO="I'm from the bashrc"
+# Source specific bashrc file based on the system architecture
+source "${KEPLER_HOME}/lib/uname/$(uname)/bashrc.sh" || true

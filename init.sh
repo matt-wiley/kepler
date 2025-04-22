@@ -1,18 +1,52 @@
 #!/bin/bash
+set -euo pipefail  # Add strict error handling
+
+usage() {
+    cat << EOF
+Usage: $(basename "$0")
+Initializes the Kepler environment configuration.
+
+This script will:
+- Link Kepler to the user config directory
+- Configure bashrc and bash_profile
+- Update dotfiles
+EOF
+}
+
+KEPLER_HOME="$HOME/.config/kepler"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+INCLUDE_BASHRC_LEADER="$SCRIPT_DIR/.includes/bashrc_leader.sh"
+INCLUDE_BASH_PROFILE_LEADER="$SCRIPT_DIR/.includes/bash_profile_leader.sh"
+SCRIPT_INIT_DOTFILE_LINKS="$SCRIPT_DIR/init_dotfile_links.sh"
+
+log() {
+    echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" | tee -a $SCRIPT_DIR/init.log
+}
+
+# Check for required files
+required_files=(
+    "$INCLUDE_BASHRC_LEADER"
+    "$INCLUDE_BASH_PROFILE_LEADER"
+    "$SCRIPT_INIT_DOTFILE_LINKS"
+)
+
+for file in "${required_files[@]}"; do
+    if [[ ! -f "$file" ]]; then
+        log "Error: Required file not found: $file"
+        exit 1
+    fi
+done
+
 
 # -----------------------------------------------------------------------------
 #   Link kepler to user config directory
 #
-KEPLER_HOME="$HOME/.config/kepler"
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# Link kepler to user config directory
 if [ -L "${KEPLER_HOME}" ]; then
-    echo "Kepler linkage already exists."
-    echo "Aborting to avoid overwriting."
+    log "Kepler linkage already exists. Aborting to prevent overwriting."
     exit 0
 else
-    echo "Linking kepler to user config directory."
+    log "Linking kepler to user config directory."
     mkdir -p $(dirname $KEPLER_HOME)
     ln -s "$SCRIPT_DIR" "${KEPLER_HOME}"
 fi
@@ -21,35 +55,50 @@ fi
 # -----------------------------------------------------------------------------
 #   Create kepler bashrc
 #
-TEMP_BASHRC="bashrc.tmp"
-touch $TEMP_BASHRC
+if [[ -f "$HOME/.bashrc" ]] && grep -q "KEPLER_HOME" "$HOME/.bashrc"; then
+  log "Kepler bashrc has already been sourced."
+else
+  TEMP_BASHRC="bashrc.tmp"
+  touch $TEMP_BASHRC
 
-cat $SCRIPT_DIR/includes/bashrc_leader.sh >> $TEMP_BASHRC
+  cat $INCLUDE_BASHRC_LEADER >> $TEMP_BASHRC
 
-if [[ -f $HOME/.bashrc ]]; then
-    cat $HOME/.bashrc >> $TEMP_BASHRC
-    echo "Backing up existing .bashrc to .bashrc.bak"
-    mv $HOME/.bashrc $HOME/.bashrc.bak
+  if [[ -f $HOME/.bashrc ]]; then
+      cat $HOME/.bashrc >> $TEMP_BASHRC
+      log "Backing up existing .bashrc to .bashrc.bak"
+      mv $HOME/.bashrc $HOME/.bashrc.bak
+  fi
+  mv $TEMP_BASHRC $HOME/.bashrc
 fi
-mv $TEMP_BASHRC $HOME/.bashrc
+
+
 
 
 # -----------------------------------------------------------------------------
 #   Create kepler bash_profile
 #
-TEMP_BASH_PROFILE="bash_profile.tmp"
-touch $TEMP_BASH_PROFILE
 
-cat $SCRIPT_DIR/includes/bash_profile_leader.sh >> $TEMP_BASH_PROFILE
+if [[ -f "$HOME/.bash_profile" ]] && grep -q "KEPLER_HOME" "$HOME/.bash_profile"; then
+  log "Kepler bash_profile has already been sourced."
+else
+  TEMP_BASH_PROFILE="bash_profile.tmp"
+  touch $TEMP_BASH_PROFILE
 
-if [[ -f $HOME/.bash_profile ]]; then
-    cat $HOME/.bash_profile >> $TEMP_BASH_PROFILE
-    echo "Backing up existing .bash_profile to .bash_profile.bak"
-    mv $HOME/.bash_profile $HOME/.bash_profile.bak
+  cat $INCLUDE_BASH_PROFILE_LEADER >> $TEMP_BASH_PROFILE
+
+  if [[ -f $HOME/.bash_profile ]]; then
+      cat $HOME/.bash_profile >> $TEMP_BASH_PROFILE
+      log "Backing up existing .bash_profile to .bash_profile.bak"
+      mv $HOME/.bash_profile $HOME/.bash_profile.bak
+  fi
+  mv $TEMP_BASH_PROFILE $HOME/.bash_profile
 fi
-mv $TEMP_BASH_PROFILE $HOME/.bash_profile
+
+
+source $SCRIPT_INIT_DOTFILE_LINKS
+
 
 # -----------------------------------------------------------------------------
 #   Fin
 #
-echo "Kepler environment configuration has been initialized."
+log "Kepler environment configuration has been initialized."
