@@ -24,7 +24,7 @@ fi
 TEMP_BASHRC="bashrc.tmp"
 touch $TEMP_BASHRC
 
-cat $SCRIPT_DIR/snippets/bashrc_leader.sh >> $TEMP_BASHRC
+cat $SCRIPT_DIR/includes/bashrc_leader.sh >> $TEMP_BASHRC
 
 if [[ -f $HOME/.bashrc ]]; then
     cat $HOME/.bashrc >> $TEMP_BASHRC
@@ -40,7 +40,7 @@ mv $TEMP_BASHRC $HOME/.bashrc
 TEMP_BASH_PROFILE="bash_profile.tmp"
 touch $TEMP_BASH_PROFILE
 
-cat $SCRIPT_DIR/snippets/bash_profile_leader.sh >> $TEMP_BASH_PROFILE
+cat $SCRIPT_DIR/includes/bash_profile_leader.sh >> $TEMP_BASH_PROFILE
 
 if [[ -f $HOME/.bash_profile ]]; then
     cat $HOME/.bash_profile >> $TEMP_BASH_PROFILE

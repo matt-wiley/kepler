@@ -15,9 +15,10 @@ A one-time initialization script sets up the environment by injecting source com
 
 ### Core Files for Shell Configuration
 
-- `init.sh`: One-time initialization script that sets up the environment.
 - `bashrc.sh`: Common Bash configuration file for interactive shells.
 - `bash_profile.sh`: Common Bash configuration file for login shells.
+- `init.sh`: One-time initialization script that sets up the environment.
+- `includes/*`: Directory containing sub-scripts and snippets included during the initialization process. 
 
 ### Support Files for Development
 
