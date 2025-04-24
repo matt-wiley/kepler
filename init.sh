@@ -1,18 +1,6 @@
 #!/bin/bash
 set -euo pipefail  # Add strict error handling
 
-usage() {
-    cat << EOF
-Usage: $(basename "$0")
-Initializes the Kepler environment configuration.
-
-This script will:
-- Link Kepler to the user config directory
-- Configure bashrc and bash_profile
-- Update dotfiles
-EOF
-}
-
 KEPLER_HOME="$HOME/.config/kepler"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -21,7 +9,9 @@ INCLUDE_BASH_PROFILE_LEADER="$SCRIPT_DIR/.includes/bash_profile_leader.sh"
 SCRIPT_INIT_DOTFILE_LINKS="$SCRIPT_DIR/init_dotfile_links.sh"
 
 log() {
-    echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" | tee -a $SCRIPT_DIR/init.log
+    local logger_name=$(basename $BASH_SOURCE)
+    local timestamp=$(date +'%Y-%m-%d %H:%M:%S.%3N')
+    echo "[$timestamp] $logger_name : $*" >> $SCRIPT_DIR/${logger_name/.sh/.log} # KEPLER_HOME doesn't exist yet, so use SCRIPT_DIR
 }
 
 # Check for required files

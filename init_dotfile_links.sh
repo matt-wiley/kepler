@@ -11,6 +11,16 @@
 # If KEPLER_HOME is not set, it runs in dry run mode, printing the commands 
 # instead of executing them.
 
+log() {
+    if [[ -z "$KEPLER_HOME" ]]; then
+        : # KEPLER_HOME not set, do not log
+    else
+        local logger_name=$(basename $BASH_SOURCE)
+        local timestamp=$(date +'%Y-%m-%d %H:%M:%S.%3N')
+        echo "[$timestamp] $logger_name : $*" >> $KEPLER_HOME/${logger_name/.sh/.log}
+    fi
+}
+
 update_dotfile_links() {
     local kepler_home="${KEPLER_HOME:-"KEPLER_HOME"}"
 
@@ -32,7 +42,7 @@ update_dotfile_links() {
         else
             ln -s "$kepler_home/$source" "$HOME/$target"
         fi
-        echo "Linked $source to $target"
+         log "Linked $source to $target"
     done
 
     unset -f update_dotfile_links
