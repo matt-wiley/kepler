@@ -8,11 +8,7 @@ INCLUDE_BASHRC_LEADER="$SCRIPT_DIR/.includes/bashrc_leader.sh"
 INCLUDE_BASH_PROFILE_LEADER="$SCRIPT_DIR/.includes/bash_profile_leader.sh"
 SCRIPT_INIT_DOTFILE_LINKS="$SCRIPT_DIR/init_dotfile_links.sh"
 
-log() {
-    local logger_name=$(basename $BASH_SOURCE)
-    local timestamp=$(date +'%Y-%m-%d %H:%M:%S.%3N')
-    echo "[$timestamp] $logger_name : $*" >> $SCRIPT_DIR/${logger_name/.sh/.log} # KEPLER_HOME doesn't exist yet, so use SCRIPT_DIR
-}
+source "$SCRIPT_DIR/lib/kepler_tools.sh"
 
 # Check for required files
 required_files=(
@@ -85,7 +81,7 @@ else
 fi
 
 
-source $SCRIPT_INIT_DOTFILE_LINKS
+load $SCRIPT_INIT_DOTFILE_LINKS
 
 
 # -----------------------------------------------------------------------------

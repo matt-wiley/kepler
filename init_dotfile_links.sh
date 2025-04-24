@@ -11,15 +11,8 @@
 # If KEPLER_HOME is not set, it runs in dry run mode, printing the commands 
 # instead of executing them.
 
-log() {
-    if [[ -z "$KEPLER_HOME" ]]; then
-        : # KEPLER_HOME not set, do not log
-    else
-        local logger_name=$(basename $BASH_SOURCE)
-        local timestamp=$(date +'%Y-%m-%d %H:%M:%S.%3N')
-        echo "[$timestamp] $logger_name : $*" >> $KEPLER_HOME/${logger_name/.sh/.log}
-    fi
-}
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/lib/kepler_tools.sh"
 
 update_dotfile_links() {
     local kepler_home="${KEPLER_HOME:-"KEPLER_HOME"}"

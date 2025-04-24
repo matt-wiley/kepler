@@ -1,22 +1,4 @@
-log() {
-    if [[ -z "$KEPLER_HOME" ]]; then
-        : # KEPLER_HOME not set, do not log
-    else
-        local logger_name=$(basename $BASH_SOURCE)
-        local timestamp=$(date +'%Y-%m-%d %H:%M:%S.%3N')
-        echo "[$timestamp] $logger_name : $*" >> "$KEPLER_HOME/${logger_name/.sh/.log}"
-    fi
-}
-
-load() {
-    local file="$1"
-    if [[ -f "$file" ]]; then
-        log "Sourcing $file"
-        source "$file" 2>&1 > /dev/null || {
-            log "Error sourcing $file"
-        }
-    fi
-}
+source "${KEPLER_HOME}/lib/kepler_tools.sh"
 
 # ==============================================================================
 
@@ -24,6 +6,15 @@ load() {
 load "${KEPLER_HOME}/lib/arch/$(uname)/bash_profile.sh"
 
 #  Source the remaining configuration files
-load "$HOME/.profile"
-load "$HOME/.bashrc"
+
+if [[ -f "$HOME/.profile" ]]; then
+    load "$HOME/.profile"
+else
+    log "No .profile file found in $HOME"
+fi
+if [[ -f "$HOME/.bashrc" ]]; then
+    load "$HOME/.bashrc"
+else
+    log "No .bashrc file found in $HOME"
+fi
 
